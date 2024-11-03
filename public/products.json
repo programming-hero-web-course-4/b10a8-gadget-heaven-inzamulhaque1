@@ -1,0 +1,222 @@
+[
+    {
+        "product_id": 1,
+        "product_title": "ASUS ROG Zephyrus G14",
+        "product_image": "https://example.com/images/rog-zephyrus-g14.jpg",
+        "category": "Laptop",
+        "price": 1399.99,
+        "description": "Powerful gaming laptop with AMD Ryzen 9 and NVIDIA GeForce RTX 3060.",
+        "Specification": ["14 inch, QHD", "16 GB RAM", "1 TB SSD"],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": 2,
+        "product_title": "Dell XPS 13",
+        "product_image": "https://example.com/images/dell-xps-13.jpg",
+        "category": "Laptop",
+        "price": 999.99,
+        "description": "Compact and high-performance laptop with Intel i7.",
+        "Specification": ["13.3 inch, 4K", "16 GB RAM", "512 GB SSD"],
+        "availability": true,
+        "rating": 4.7
+    },
+    {
+        "product_id": 3,
+        "product_title": "HP Spectre x360",
+        "product_image": "https://example.com/images/hp-spectre-x360.jpg",
+        "category": "Laptop",
+        "price": 1249.99,
+        "description": "2-in-1 convertible laptop with an elegant design.",
+        "Specification": ["13.3 inch, FHD", "16 GB RAM", "1 TB SSD"],
+        "availability": true,
+        "rating": 4.6
+    },
+    {
+        "product_id": 4,
+        "product_title": "Apple MacBook Pro 14",
+        "product_image": "https://example.com/images/macbook-pro-14.jpg",
+        "category": "MacBook",
+        "price": 1999.99,
+        "description": "High-performance MacBook with M1 Pro chip.",
+        "Specification": ["14 inch, Liquid Retina XDR", "16 GB RAM", "512 GB SSD"],
+        "availability": true,
+        "rating": 4.9
+    },
+    {
+        "product_id": 5,
+        "product_title": "Apple MacBook Air M1",
+        "product_image": "https://example.com/images/macbook-air-m1.jpg",
+        "category": "MacBook",
+        "price": 999.99,
+        "description": "Thin and light MacBook with M1 chip for exceptional performance.",
+        "Specification": ["13.3 inch Retina", "8 GB RAM", "256 GB SSD"],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": 6,
+        "product_title": "iPhone 14 Pro",
+        "product_image": "https://example.com/images/iphone-14-pro.jpg",
+        "category": "iPhone",
+        "price": 999.99,
+        "description": "Latest iPhone with advanced camera system and A16 Bionic chip.",
+        "Specification": ["6.1 inch, Super Retina XDR", "128 GB storage", "5G capable"],
+        "availability": true,
+        "rating": 4.9
+    },
+    {
+        "product_id": 7,
+        "product_title": "Samsung Galaxy S23",
+        "product_image": "https://example.com/images/samsung-galaxy-s23.jpg",
+        "category": "Phone",
+        "price": 799.99,
+        "description": "Flagship smartphone with powerful performance and stunning display.",
+        "Specification": ["6.1 inch, Dynamic AMOLED", "128 GB storage", "5G capable"],
+        "availability": true,
+        "rating": 4.7
+    },
+    {
+        "product_id": 8,
+        "product_title": "Google Pixel 7",
+        "product_image": "https://example.com/images/google-pixel-7.jpg",
+        "category": "Phone",
+        "price": 599.99,
+        "description": "Smartphone with exceptional camera capabilities and stock Android.",
+        "Specification": ["6.3 inch, FHD+", "128 GB storage", "5G capable"],
+        "availability": true,
+        "rating": 4.6
+    },
+    {
+        "product_id": 9,
+        "product_title": "OnePlus 11",
+        "product_image": "https://example.com/images/oneplus-11.jpg",
+        "category": "Phone",
+        "price": 699.99,
+        "description": "Fast and smooth smartphone with top-notch performance.",
+        "Specification": ["6.7 inch, AMOLED", "128 GB storage", "5G capable"],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": 10,
+        "product_title": "Sony WH-1000XM5",
+        "product_image": "https://example.com/images/sony-wh-1000xm5.jpg",
+        "category": "Accessories",
+        "price": 349.99,
+        "description": "Industry-leading noise-canceling headphones with exceptional sound quality.",
+        "Specification": ["Bluetooth 5.2", "30 hours battery life", "Touch controls"],
+        "availability": true,
+        "rating": 4.9
+    },
+    {
+        "product_id": 11,
+        "product_title": "Anker PowerCore 26800",
+        "product_image": "https://example.com/images/anker-powercore-26800.jpg",
+        "category": "Accessories",
+        "price": 59.99,
+        "description": "High-capacity portable charger for smartphones and tablets.",
+        "Specification": ["26800mAh", "3 USB outputs", "Fast charging"],
+        "availability": true,
+        "rating": 4.7
+    },
+    {
+        "product_id": 12,
+        "product_title": "Logitech MX Master 3",
+        "product_image": "https://example.com/images/logitech-mx-master-3.jpg",
+        "category": "Accessories",
+        "price": 99.99,
+        "description": "Ergonomic wireless mouse with customizable buttons.",
+        "Specification": ["Bluetooth and USB receiver", "70 days battery life", "Fast charging"],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": 13,
+        "product_title": "Fitbit Charge 5",
+        "product_image": "https://example.com/images/fitbit-charge-5.jpg",
+        "category": "Smartwatch",
+        "price": 149.99,
+        "description": "Fitness tracker with built-in GPS and health monitoring features.",
+        "Specification": ["Heart rate monitor", "Stress management", "7 days battery life"],
+        "availability": true,
+        "rating": 4.5
+    },
+    {
+        "product_id": 14,
+        "product_title": "Samsung Galaxy Watch 5",
+        "product_image": "https://example.com/images/samsung-galaxy-watch-5.jpg",
+        "category": "Smartwatch",
+        "price": 279.99,
+        "description": "Smartwatch with health and fitness tracking capabilities.",
+        "Specification": ["Heart rate monitor", "GPS", "24 hours battery life"],
+        "availability": true,
+        "rating": 4.6
+    },
+    {
+        "product_id": 15,
+        "product_title": "Apple Watch Series 8",
+        "product_image": "https://example.com/images/apple-watch-series-8.jpg",
+        "category": "Smartwatch",
+        "price": 399.99,
+        "description": "The latest Apple Watch with advanced health features.",
+        "Specification": ["ECG monitor", "GPS", "18 hours battery life"],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": 16,
+        "product_title": "Beats Fit Pro",
+        "product_image": "https://example.com/images/beats-fit-pro.jpg",
+        "category": "Accessories",
+        "price": 199.99,
+        "description": "Wireless earbuds with active noise cancellation and spatial audio.",
+        "Specification": ["30 hours battery life", "IPX4 rated", "Apple H1 chip"],
+        "availability": true,
+        "rating": 4.7
+    },
+    {
+        "product_id": 17,
+        "product_title": "Razer Blade 15",
+        "product_image": "https://example.com/images/razer-blade-15.jpg",
+        "category": "Laptop",
+        "price": 1999.99,
+        "description": "High-end gaming laptop with Intel i7 and NVIDIA GeForce RTX 3080.",
+        "Specification": ["15.6 inch, FHD", "16 GB RAM", "1 TB SSD"],
+        "availability": true,
+        "rating": 4.9
+    },
+    {
+        "product_id": 18,
+        "product_title": "Lenovo ThinkPad X1 Carbon",
+        "product_image": "https://example.com/images/lenovo-thinkpad-x1-carbon.jpg",
+        "category": "Laptop",
+        "price": 1549.99,
+        "description": "Premium business laptop with robust build quality and performance.",
+        "Specification": ["14 inch, 4K", "16 GB RAM", "512 GB SSD"],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": 19,
+        "product_title": "Xiaomi Mi 11",
+        "product_image": "https://example.com/images/xiaomi-mi-11.jpg",
+        "category": "Phone",
+        "price": 749.99,
+        "description": "Smartphone with stunning AMOLED display and powerful performance.",
+        "Specification": ["6.81 inch, FHD+", "128 GB storage", "5G capable"],
+        "availability": true,
+        "rating": 4.7
+    },
+    {
+        "product_id": 20,
+        "product_title": "Huawei P50 Pro",
+        "product_image": "https://example.com/images/huawei-p50-pro.jpg",
+        "category": "Phone",
+        "price": 899.99,
+        "description": "Premium smartphone with a Leica camera system and sleek design.",
+        "Specification": ["6.6 inch, OLED", "256 GB storage", "5G capable"],
+        "availability": true,
+        "rating": 4.8
+    }
+]
