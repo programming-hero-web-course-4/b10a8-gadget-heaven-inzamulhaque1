@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className="relative -top-32">
       {/* Main Banner Content */}
-      <div className="w-11/12 mx-auto mt-10">
+      <div className="w-11/12 mx-auto mt-14">
 
         <div className="rounded-2xl border-2 p-4 bg-[#9538E2]">
 
