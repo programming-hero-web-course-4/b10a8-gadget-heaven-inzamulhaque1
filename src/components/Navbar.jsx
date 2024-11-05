@@ -1,9 +1,12 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const location = useLocation();
+  const [cartCount, setCartCount] = useState(0);
+  const [wishlistCount, setWishlistCount] = useState(0);
 
   // Set default background and text colors
   const getNavbarStyles = () => {
@@ -14,6 +17,39 @@ const Navbar = () => {
   };
 
   const { backgroundColor, color } = getNavbarStyles();
+
+  // Function to update the cart count from localStorage
+  const updateCartCount = () => {
+    const storedCart = localStorage.getItem('cart');
+    const count = storedCart ? JSON.parse(storedCart).length : 0;
+    setCartCount(count);
+  };
+
+  // Function to update the wishlist count from localStorage
+  const updateWishlistCount = () => {
+    const storedWishlist = localStorage.getItem('wishlist'); // Assuming you have a wishlist in localStorage
+    const count = storedWishlist ? JSON.parse(storedWishlist).length : 0;
+    setWishlistCount(count);
+  };
+
+  // Effect to initialize counts
+  useEffect(() => {
+    updateCartCount();
+    updateWishlistCount();
+
+    // Optional: Set up event listeners for localStorage changes if using multiple tabs
+    const handleStorageChange = () => {
+      updateCartCount();
+      updateWishlistCount();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    // Cleanup listener on unmount
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   return (
     <div style={{ backgroundColor }} className="navbar">
@@ -61,14 +97,17 @@ const Navbar = () => {
 
         {/* Right Section */}
         <div className="navbar-end flex items-center space-x-5">
-          <button className={`btn btn-ghost btn-circle rounded-full border-black bg-white ${color === "white" ? "text-black" : "text-black"}`}>
-            <IoCartOutline className="text-xl" />
-          </button>
+          <div className="relative">
+            <button className={`btn btn-ghost btn-circle rounded-full border-black bg-white ${color === "white" ? "text-black" : "text-black"}`}>
+              <IoCartOutline className="text-xl" />
+              <span className="badge badge-primary indicator-item absolute px-2 py-3 -top-2 -right-3">{cartCount}</span>
+            </button>
+          </div>
 
           <button className="btn btn-ghost btn-circle rounded-full border-black bg-white relative">
             <div className="indicator">
               <FaHeart className="text-2xl text-red-500" />
-              <span className="badge badge-primary indicator-item absolute px-2 py-3 -top-2 -right-3">0</span>
+              <span className="badge badge-primary indicator-item absolute px-2 py-3 -top-2 -right-3">{wishlistCount}</span>
             </div>
           </button>
         </div>
