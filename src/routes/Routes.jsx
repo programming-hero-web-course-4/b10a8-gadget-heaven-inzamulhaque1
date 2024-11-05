@@ -8,6 +8,7 @@ import Dashboard from "../pages/Dashboard.jsx";
 import CartProduct from "../components/CartProduct.jsx";
 import Wishlist from "../components/Wishlist.jsx";
 import Statistics from "../pages/Statistics.jsx";
+import GadgetComparison from "../pages/GadgetComparison.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -57,7 +58,12 @@ const routes = createBrowserRouter([
       {
         path: '/statistics',
         element: <Statistics />
+      },
+      {
+        path: '/compare',
+        element: <GadgetComparison></GadgetComparison>
       }
+      
     ],
   },
 ]);
