@@ -32,7 +32,7 @@ const CartProduct = () => {
   };
 
   const sortByPrice = () => {
-    const sortedItems = [...product].sort((a, b) => a.price - b.price);
+    const sortedItems = [...product].sort((a, b) => b.price - a.price);
     setProduct(sortedItems);
   };
 
@@ -51,22 +51,27 @@ const CartProduct = () => {
 
   return (
     <div className="container mx-auto mt-5">
-      <div className="mb-6 flex justify-between items-center">
-        <h1 className=" text-2xl font-bold">Cart: {product.length} items</h1>
-
-        <div className="flex gap-4 items-center">
-          <p className="text-lg font-semibold">
-            Total Price: ${totalPrice.toFixed(2)}
+      <div className="mb-6 flex justify-between items-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-xl shadow-xl py-6 px-8 transition-transform duration-300 transform hover:scale-105">
+        <h1 className="text-2xl font-bold text-white">
+          Cart: {product.length} items
+        </h1>
+        <p className="text-3xl font-semibold text-white transform scale-110 transition-all duration-300">
+            Total Price:{" "}
+            <span className="text-yellow-300">${totalPrice.toFixed(2)}</span>
           </p>
+        <div className="flex gap-6 items-center justify-center py-6">
+          
+
           <button
             onClick={sortByPrice}
-            className="btn bg-lime-500 border-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200"
+            className="btn bg-lime-500 text-white px-6 py-3 rounded-full shadow-xl hover:bg-blue-600 transform transition-all duration-300 ease-in-out hover:scale-110 active:scale-100"
           >
             Sort by Price
           </button>
+
           <button
             onClick={handlePurchase}
-            className="btn bg-lime-500 border-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200"
+            className="btn bg-lime-500 text-white px-6 py-3 rounded-full shadow-xl hover:bg-blue-600 transform transition-all duration-300 ease-in-out hover:scale-110 active:scale-100"
           >
             Purchase
           </button>
@@ -77,7 +82,7 @@ const CartProduct = () => {
         {product.map((product) => (
           <div
             key={product.product_id}
-            className="flex border p-4 rounded shadow-md mb-4 transition-transform transform hover:scale-105 hover:shadow-lg"
+            className="flex border p-4 rounded-2xl shadow-md mb-4 transition-transform transform hover:scale-105 hover:shadow-lg"
           >
             <div className="flex-shrink-0">
               <img
@@ -111,7 +116,9 @@ const CartProduct = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-8 rounded shadow-md max-w-sm text-center">
             <h3 className="text-lg font-bold mb-4">Confirm Purchase</h3>
-            <p className="mb-6">Are you sure you want to complete the purchase?</p>
+            <p className="mb-6">
+              Are you sure you want to complete the purchase?
+            </p>
             <div className="flex justify-center space-x-4">
               <button
                 onClick={confirmPurchase}

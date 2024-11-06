@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import bannerImage from "../assets/banner.jpg";
 
 // Banner.jsx
@@ -21,9 +22,11 @@ const Banner = () => {
                   the next level. From smart devices to the coolest accessories,
                   we have it all!
                 </p>
-                <button className="btn rounded-full bg-white text-[#9538E2] px-5">
-                  Shop Now
-                </button>
+                <NavLink to="/dashboard">
+  <button className="btn rounded-full bg-white text-[#9538E2] px-5 py-2 transition duration-300 ease-in-out transform hover:bg-[#9538E2] hover:text-white hover:scale-105 shadow-md hover:shadow-lg">
+    Shop Now
+  </button>
+</NavLink>
               </div>
             </div>
           </div>
@@ -32,7 +35,7 @@ const Banner = () => {
 
       {/* Image Section - Positioned to Start from Bottom of Banner */}
       <div className="w-2/4 mx-auto -mt-44 z-50">
-        <div className="p-2 border-2 rounded-2xl bg-white">
+        <div className="p-2 border-2 rounded-2xl bg-white ">
           <img
             className="rounded-xl h-[500px] w-full object-cover"
             src={bannerImage}

@@ -9,11 +9,13 @@ import CartProduct from "../components/CartProduct.jsx";
 import Wishlist from "../components/Wishlist.jsx";
 import Statistics from "../pages/Statistics.jsx";
 import GadgetComparison from "../pages/GadgetComparison.jsx";
+import ErrorPage from "../components/ErrorPage.jsx";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

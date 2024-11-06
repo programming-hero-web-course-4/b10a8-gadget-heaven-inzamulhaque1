@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { useParams } from "react-router-dom";
-import { addToCart, getAllAddToCart, addToWishlist, getAllWishlistItems } from "../utilities";
+import {
+  addToCart,
+  getAllAddToCart,
+  addToWishlist,
+  getAllWishlistItems,
+} from "../utilities";
 
 const SingleProductDetail = () => {
   const { product_id } = useParams();
@@ -22,8 +27,12 @@ const SingleProductDetail = () => {
       if (foundProduct) {
         const cart = getAllAddToCart();
         const wishlist = getAllWishlistItems();
-        setIsCart(cart.some(item => item.product_id === foundProduct.product_id));
-        setIsWishlist(wishlist.some(item => item.product_id === foundProduct.product_id));
+        setIsCart(
+          cart.some((item) => item.product_id === foundProduct.product_id)
+        );
+        setIsWishlist(
+          wishlist.some((item) => item.product_id === foundProduct.product_id)
+        );
       }
     };
 
@@ -39,11 +48,11 @@ const SingleProductDetail = () => {
 
   const handleAddToWishlist = () => {
     addToWishlist(product);
-    setIsWishlist(true);
+    setIsWishlist(true); // Disable heart icon after adding to wishlist
   };
 
   return (
-    <div className="p-6 flex">
+    <div className="p-2 flex">
       <div>
         <img
           src={product.product_image}
@@ -52,29 +61,62 @@ const SingleProductDetail = () => {
         />
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-3 pl-6">
         <h2 className="text-3xl font-bold">{product.product_title}</h2>
         <p className="mt-4 font-bold">Price: ${product.price}</p>
         <div className="rounded-full border border-green-500 w-28 p-2 text-green-500 font-bold text-center bg-green-50">
           {product.availability ? "In Stock" : "Not Available"}
         </div>
-        <p className="mt-2 text-gray-400 font-semibold">{product.description}</p>
+        <p className="mt-2 text-gray-400 font-semibold">
+          {product.description}
+        </p>
         <p className="mt-4 font-bold">Specification:</p>
         <ul className="mt-4 font-semibold">
           {product.Specification.map((spec, index) => (
-            <li key={index} className="text-stone-600 list-decimal ml-8 ">
+            <li key={index} className="text-stone-600 list-decimal ml-8">
               {spec}
             </li>
           ))}
         </ul>
-        <p>Rating: {product.rating} </p>
+
+        <p className="font-bold text-red-500">{product.category}</p>
+        <p
+          className={`${
+            product.availability ? "text-green-500" : "text-red-500"
+          } font-bold`}
+        >
+          {product.availability ? "Yes In Stock" : "Not Available"}
+        </p>
+
+        <p>Rating: {product.rating}</p>
 
         <div className="rating">
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked />
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+            defaultChecked
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
         </div>
 
         <div className="flex items-center gap-7">
@@ -83,15 +125,21 @@ const SingleProductDetail = () => {
             onClick={handleAddToCart}
             className="btn rounded-full bg-[#9538E2] text-white px-5 hover:bg-red-500"
           >
-            {isCart ? "Added to Cart" : "Add To Cart"} <IoCartOutline className="text-xl" />
+            {isCart ? "Added to Cart" : "Add To Cart"}{" "}
+            <IoCartOutline className="text-xl" />
           </button>
 
           <button
+            disabled={isWishlist} // Disable heart icon if product is in wishlist
             onClick={handleAddToWishlist}
             className="btn btn-ghost btn-circle rounded-full border-gray-400 bg-white relative hover:bg-red-500"
           >
             <div className="indicator">
-              <FaHeart className={`text-3xl ${isWishlist ? 'text-red-500' : 'text-gray-500'} hover:text-white`} />
+              <FaHeart
+                className={`text-3xl ${
+                  isWishlist ? "text-red-500" : "text-gray-500"
+                } hover:text-white`}
+              />
             </div>
           </button>
         </div>

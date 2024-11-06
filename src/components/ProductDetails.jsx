@@ -13,7 +13,7 @@ const ProductDetails = () => {
           </p>
         </div>
 
-        <div className="w-2/4 h-[300px] bg-white absolute top-48 left-1/4 rounded-2xl border pb-[500px]">
+        <div className="w-2/4 h-[300px] bg-white absolute top-48 left-1/4 rounded-2xl border pb-[535px]">
           <Outlet />
         </div>
 
