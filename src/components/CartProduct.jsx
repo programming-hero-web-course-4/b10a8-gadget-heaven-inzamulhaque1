@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { getAllAddToCart } from "../utilities";
 import { FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // React Router v6 hook for navigation
 
 const CartProduct = () => {
   const [product, setProduct] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [purchaseConfirmed, setPurchaseConfirmed] = useState(false); // Track purchase status
+  const navigate = useNavigate(); // React Router v6 navigation hook
 
   useEffect(() => {
     const cart = getAllAddToCart();
@@ -46,7 +49,13 @@ const CartProduct = () => {
     setProduct([]);
     setTotalPrice(0);
     localStorage.removeItem("cart");
+    setPurchaseConfirmed(true); // Track that purchase was confirmed
+  };
+
+  const closeModal = () => {
+    // Close the modal and redirect to home page after purchase confirmation
     setIsModalOpen(false);
+    navigate("/"); // Redirects to the homepage
   };
 
   return (
@@ -56,12 +65,10 @@ const CartProduct = () => {
           Cart: {product.length} items
         </h1>
         <p className="text-3xl font-semibold text-white transform scale-110 transition-all duration-300">
-            Total Price:{" "}
-            <span className="text-yellow-300">${totalPrice.toFixed(2)}</span>
-          </p>
+          Total Price:{" "}
+          <span className="text-yellow-300">${totalPrice.toFixed(2)}</span>
+        </p>
         <div className="flex gap-6 items-center justify-center py-6">
-          
-
           <button
             onClick={sortByPrice}
             className="btn bg-lime-500 text-white px-6 py-3 rounded-full shadow-xl hover:bg-blue-600 transform transition-all duration-300 ease-in-out hover:scale-110 active:scale-100"
@@ -71,7 +78,12 @@ const CartProduct = () => {
 
           <button
             onClick={handlePurchase}
-            className="btn bg-lime-500 text-white px-6 py-3 rounded-full shadow-xl hover:bg-blue-600 transform transition-all duration-300 ease-in-out hover:scale-110 active:scale-100"
+            disabled={product.length === 0 || totalPrice === 0} // Disable if no items or price is 0
+            className={`btn ${
+              product.length === 0 || totalPrice === 0
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-lime-500"
+            } text-white px-6 py-3 rounded-full shadow-xl hover:bg-blue-600 transform transition-all duration-300 ease-in-out hover:scale-110 active:scale-100`}
           >
             Purchase
           </button>
@@ -115,23 +127,30 @@ const CartProduct = () => {
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-8 rounded shadow-md max-w-sm text-center">
-            <h3 className="text-lg font-bold mb-4">Confirm Purchase</h3>
+            <h3 className="text-lg font-bold mb-4">
+              {purchaseConfirmed ? "Congratulations!" : "Confirm Purchase"}
+            </h3>
             <p className="mb-6">
-              Are you sure you want to complete the purchase?
+              {purchaseConfirmed
+                ? "Your purchase was successful. Thank you for shopping with us!"
+                : "Are you sure you want to complete the purchase?"}
             </p>
             <div className="flex justify-center space-x-4">
-              <button
-                onClick={confirmPurchase}
-                className="btn bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200"
-              >
-                Yes, Purchase
-              </button>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="btn bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-200"
-              >
-                Cancel
-              </button>
+              {!purchaseConfirmed ? (
+                <button
+                  onClick={confirmPurchase}
+                  className="btn bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200"
+                >
+                  Yes, Purchase
+                </button>
+              ) : (
+                <button
+                  onClick={closeModal}
+                  className="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
+                >
+                  Close
+                </button>
+              )}
             </div>
           </div>
         </div>

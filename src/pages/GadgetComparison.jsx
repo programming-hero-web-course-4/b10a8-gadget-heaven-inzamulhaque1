@@ -8,6 +8,9 @@ const GadgetComparison = () => {
 
   // Fetch data from products.json
   useEffect(() => {
+
+      document.title = "Gadgets Haven | GadgetComparison"; // Set dynamic title
+
     fetch("/products.json")
       .then((response) => response.json())
       .then((data) => setProducts(data))

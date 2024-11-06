@@ -8,6 +8,9 @@ const Statistics = () => {
 
   // Fetch the product data from products.json
   useEffect(() => {
+    
+      document.title = "Gadgets Haven | Statistics"; // Set dynamic title
+    
     fetch("/products.json")
       .then((response) => response.json())
       .then((data) => setProductsData(data))

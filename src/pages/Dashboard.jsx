@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
+  useEffect(() => {
+    document.title = "Gadgets Haven | Dashboard"; // Set dynamic title
+  }, []);
   return (
     <div className="pb-[500px] bg-gray-50">
       <div className="bg-[#9538E2] relative pb-20">

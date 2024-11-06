@@ -16,6 +16,9 @@ const SingleProductDetail = () => {
   const [isWishlist, setIsWishlist] = useState(false);
 
   useEffect(() => {
+    
+      document.title = "Gadgets Haven | Product"; // Set dynamic title
+    
     const fetchProduct = async () => {
       const response = await fetch("/products.json");
       const products = await response.json();

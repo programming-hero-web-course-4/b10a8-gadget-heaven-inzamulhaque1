@@ -28,9 +28,9 @@ const Navbar = () => {
       case "/compare":
         return "Compare Gadgets";
       case "/":
-        return "Home";
-      default:
         return "Gadget Heaven";
+      default:
+        return "Gadget Heaven ";
     }
   };
 
@@ -99,10 +99,12 @@ const Navbar = () => {
               <li><NavLink to="/compare">Compare Gadgets</NavLink></li>
             </ul>
           </div>
+
           <img className="h-12 rounded-3xl" src="https://i.ibb.co.com/0nXqkkW/Untitled-design-3.jpgg" alt="Logo" />
           <NavLink to="/" className={`btn btn-ghost text-xl ${color === "white" ? "text-white" : "text-black"}`}>
             {getNavTitle()} {/* Display dynamic title */}
           </NavLink>
+          
         </div>
 
         {/* Center Section */}
